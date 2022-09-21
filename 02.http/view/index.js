@@ -1,26 +1,25 @@
-exports.index = function() {
+exports.index = function(title, list, content, control) {
     return `
-    <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹 기술</title>
+    <title>${title}</title>     <!-- 23.app조회.js 에서 변경됨 -->
 </head>
 <body style="margin: 50px;">
-    <h1>웹 기술</h1>
+    <h1><a href="/">웹 기술</a></h1>
     <ul>
-        <li><h3>CSS</h3></li>
-        <li><h3>HTML</h3></li>
-        <li><h3>JavaScript</h3></li>
+        ${list}                 <!-- 22.app리스트.js 에서 변경됨 -->
     </ul>
     <hr>
     <p>
-        월드 와이드 웹(World Wide Web)이란 인터넷에 연결된 사용자들이 서로의 정보를 공유할 수 있는 공간을 의미합니다.
-        간단히 줄여서 WWW나 W3라고도 부르며, 간단히 웹(Web)이라고 가장 많이 불립니다. 
+        ${content}              <!-- 23.app조회.js 에서 변경됨 -->
     </p>
+    <hr>
+    ${control}
 </body>
 </html>
-    `
+    `;
 }
