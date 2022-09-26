@@ -156,3 +156,4 @@ SELECT c.Name, c.Population, l.`Language` FROM city AS c
 	WHERE l.IsOfficial=TRUE 
 	ORDER BY c.Population DESC 
 	LIMIT 10;
+
