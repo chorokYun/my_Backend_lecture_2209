@@ -35,10 +35,10 @@ module.exports = {
         let trs = '';
         for (let row of rows) {
             trs += '<tr>';
-            trs += `<td>${row.ID}</td><td>${row.PLAYER}</td>`;
-            trs += `<td>${row.BACKNO}</td><td>${row.position}</td>`;
-            trs += `<td><a href="/update?ID=${row.ID}">수정</a>, 
-                        <a href="/delete?ID=${row.ID}">삭제</a></td>`;
+            trs += `<td>${row.id}</td><td>${row.player}</td>`;
+            trs += `<td>${row.backNo}</td><td>${row.position}</td>`;
+            trs += `<td><a href="/update?id=${row.id}">수정</a>, 
+                        <a href="/delete?id=${row.id}">삭제</a></td>`;
             trs += '</tr>';
         }
         return trs;
@@ -64,10 +64,10 @@ module.exports = {
             <form action="/create" method="post">
                 <table>
                     <tr>
-                        <td>선수명</td><td><input type="text" name="PLAYER"></td>
+                        <td>선수명</td><td><input type="text" name="player"></td>
                     </tr>
                     <tr>
-                        <td>백넘버</td><td><input type="text" name="BACKNO"></td>
+                        <td>백넘버</td><td><input type="text" name="backNo"></td>
                     </tr>
                     <tr>
                         <td>포지션</td><td><input type="text" name="position"></td>
@@ -82,7 +82,7 @@ module.exports = {
         `;
     },
 
-    updateForm: function(ID, PLAYER, BACKNO, position) {
+    updateForm: function(id, player, backNo, position) {
         return `
         <!DOCTYPE html>
         <html lang="en">
@@ -100,13 +100,13 @@ module.exports = {
             <button onclick="location.href='/'">홈으로</button>
             <hr>
             <form action="/update" method="post">
-                <input type="hidden" name="ID" value="${ID}">
+                <input type="hidden" name="id" value="${id}">
                 <table>
                     <tr>
-                        <td>선수명</td><td><input type="text" name="PLAYER" value="${PLAYER}"></td>
+                        <td>선수명</td><td><input type="text" name="player" value="${player}"></td>
                     </tr>
                     <tr>
-                        <td>백넘버</td><td><input type="text" name="BACKNO" value="${BACKNO}"></td>
+                        <td>백넘버</td><td><input type="text" name="backNo" value="${backNo}"></td>
                     </tr>
                     <tr>
                         <td>포지션</td><td><input type="text" name="position" value="${position}"></td>
@@ -120,7 +120,7 @@ module.exports = {
         </html>
         `;
     },
-    deleteForm: function(ID) {
+    deleteForm: function(id) {
         return `
         <!DOCTYPE html>
         <html lang="ko">
@@ -134,7 +134,7 @@ module.exports = {
             <script>
                 let answer = confirm('정말로 삭제하시겠습니까?');
                 if (answer)
-                    location.href = '/deleteConfirm?ID=${ID}';
+                    location.href = '/deleteConfirm?id=${id}';
                 else
                     location.href = '/';
             </script>
