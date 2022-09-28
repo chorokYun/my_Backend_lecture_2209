@@ -13,7 +13,7 @@ app.get('/set/:key/value/:value', (req, res) => {
     const value = req.params.value;
     res.set(key, value);
     res.send(`<h3>key:${key}, value:${value}</h3>`)
-})
+});
 
 app.get('*', (req, res) => {
     res.status(404).send('Path not found.');
