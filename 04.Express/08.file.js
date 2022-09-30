@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 const upload = multer({
     storage: multer.diskStorage({
         destination: __dirname + '/public/upload/',     // 저장위치 설정
-        filename: (req, file, next) => {                 // next callback
-            next(null, file.originalname);
+        filename: (req, file, callback) => {            // callback
+            callback(null, file.originalname);
         }
     })
 });
